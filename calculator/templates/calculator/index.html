@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator Page</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/static/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/static/assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.min.css">
+
+</head>
+<body>
+<!-- Start Top Nav -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <i class="fa fa-envelope mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                <i class="fa fa-phone mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">000-1111-112</a>
+            </div>
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Close Top Nav -->
+
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            Clean
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+             id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutorial.html">Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculator.html">Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar align-self-center d-flex">
+
+
+                <a class="nav-icon position-relative text-decoration-none" href="login.html">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    <!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
+                </a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+<!-- Close Header -->
+
+<div>
+    <center>
+        <br>
+        <br>
+
+        <h1 class="navbar-brand text-success logo h1 align-self-center" >Calculation</h1>
+
+        <br>
+        <br>
+
+        <table>
+            <tr>
+                <td>
+                    <form method="post">{% csrf_token %}<label>Select the Price Range: </label>
+                </td>
+                <td><select name="range" style="width:150px">
+                    <option selected disabled="true">Select the Price Range</option>
+                    {% for range in ranges %}
+                    <option value="{{ range }}" {% if selected_range == range %} selected="selected" {% endif %}> {{range}}</option>
+                    {% endfor %}
+                </select>
+                    <input type="submit" value="Select" name="submit_for_price_Range">
+
+                </td>
+
+
+                <td><input name="a2" id="a2" value=0></td>
+                <td></td>
+
+                <td>
+                    {% if selected_range %}
+                    {% for rest in range_price %}
+                    <input name="a1" id="a1" value="{{ rest.price }}">
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+
+</form>
+
+            <form name="price_rates" method="post">
+                {% csrf_token %}
+                <tr>
+
+                    <td><label>Bedrooms: </label></td>
+                    <td><input name="b1" id="b1" value=2></td>
+                    <td><input name="b2" id="b2" value=3></td>
+
+                    <td><input name="rate1" id="rate1" value="{{ rates1.rate }}" {% if not request.user.is_superuser %} disabled {% endif %}></td>
+
+
+                    <td><input name="b3" id="b3" value=0></td>
+
+
+                </tr>
+                <tr>
+                    <td><label>Bathrooms: </label></td>
+                    <td><input name="c1" id="c1" value=2.00></td>
+                    <td><input name="c2" id="c2" value=7></td>
+
+                    <td><input name="rate2" id="rate2" value="{{ rates2.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+
+                    <td><input name="c3" id="c3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Living Room: </label></td>
+                    <td><input name="d1" id="d1" value=1></td>
+                    <td><input name="d2" id="d2" value=5></td>
+
+                    <td><input name="rate3" id="rate3" value="{{ rates3.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="d3" id="d3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Dining Room: </label></td>
+                    <td><input name="e1" id="e1" value=1></td>
+                    <td><input name="e2" id="e2" value=4></td>
+
+                    <td><input name="rate4" id="rate4" value="{{ rates4.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="e3" id="e3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Den/Family Room: </label></td>
+                    <td><input name="f1" id="f1" value=0></td>
+                    <td><input name="f2" id="f2" value=5></td>
+
+                    <td><input name="rate5" id="rate5" value="{{ rates5.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="f3" id="f3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Study: </label></td>
+                    <td><input name="g1" id="g1" value=0></td>
+                    <td><input name="g2" id="g2" value=4></td>
+
+                    <td><input name="rate6" id="rate6" value="{{ rates6.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="g3" id="g3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Game Room: </label></td>
+                    <td><input name="h1" id="h1" value=0></td>
+                    <td><input name="h2" id="h2" value=4></td>
+
+                    <td><input name="rate7"  id="rate7" value="{{ rates7.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="h3" id="h3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Media Room: </label></td>
+                    <td><input name="i1" id="i1" value=0></td>
+                    <td><input name="i2" id="i2" value=3></td>
+
+                    <td><input name="rate8" id="rate8" value="{{ rates8.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="i3" id="i3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Laundry Room: </label></td>
+                    <td><input name="j1" id="j1" value=1></td>
+                    <td><input name="j2" id="j2" value=2></td>
+
+                    <td><input name="rate9" id="rate9" value="{{ rates9.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="j3" id="j3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Rooms With HW Floors: </label></td>
+                    <td><input name="k1" id="k1" value=0></td>
+                    <td><input name="k2" id="k2" value=2></td>
+
+                    <td><input name="rate10" id="rate10" value="{{ rates10.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="k3" id="k3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Multiple Vanities in Master Bath: </label></td>
+                    <td><input name="l1" id="l1" value=0></td>
+                    <td><input name="l2" id="l2" value=2></td>
+
+                    <td><input name="rate11" id="rate11" value="{{ rates11.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="l3" id="l3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>People: </label></td>
+                    <td><input name="m1" id="m1" value=3></td>
+                    <td><input name="m2" id="m2" value=2></td>
+
+                    <td><input name="rate12" id="rate12" value="{{ rates12.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="m3" id="m3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Pets: </label></td>
+                    <td><input name="n1" id="n1" value=1></td>
+                    <td><input name="n2" id="n2" value=1></td>
+
+                    <td><input name="rate13" id="rate13" value="{{ rates13.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="n3" id="n3" value=0></td>
+
+                </tr>
+
+
+                <tr>
+                    <td><label>Number of Stories/Levels: </label></td>
+                    <td><input name="o1" id="o1" value=2></td>
+                    <td><input name="o2" id="o2" value=2></td>
+
+                    <td><input name="rate14" id="rate14" value="{{ rates14.rate }}" {% if not request.user.is_superuser %}  disabled {% endif %}></td>
+
+                    <td><input name="o3" id="o3" value=0></td>
+
+                </tr>
+
+                <tr>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td><input type="submit" value="Save Values" name="update_value" {% if not request.user.is_superuser %} disabled {% endif %}></td>
+
+                    <td><input type="button" value="Calculate" name="Calculate" onclick="b3Value();c3Value();d3Value();e3Value();f3Value();g3Value();h3Value();i3Value();j3Value();k3Value();l3Value();m3Value();n3Value();o3Value();sumOfValues();p4Value();p3Value();q2Value();q3Value();r2Value();r3Value();s1Value();s2Value();t1Value();t2Value();u1Value();u2Value();"></td>
+                </tr>
+            </form>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <table>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Sales Tax</th>
+            <th>Total</th>
+            <th></th>
+
+            <tr>
+                <td>Total Weekly Service:</td>
+                <td></td>
+                <td><input name="p1" id="p1" value=""></td>
+                <td><input name="p2" id="p2" value=""></td>
+                <td><input name="p3" id="p3" value=""></td>
+                <td><label>Sales Tax Amount: </td><td><input name="p4" id="p4" value="4.00"></td>
+
+
+            </tr>
+
+            <tr>
+                <td>Alternate Weekly Service:</td>
+                <td>Add $15</td>
+                <td><input name="q1" id="q1" value=""></td>
+                <td><input name="q2" id="q2" value=""></td>
+                <td><input name="q3" id="q3" value=""></td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>Monthly Service:</td>
+                <td>Add $30</td>
+                <td><input name="r1" id="r1" value=""></td>
+                <td><input name="r2" id="r2" value=""></td>
+                <td><input name="r3" id="r3" value=""></td>
+                <td></td>
+
+            </tr>
+
+        </table>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <table>
+            <th>Estimate for One-Time And Initial Clean</th>
+
+
+            <tr>
+                <td></td>
+                <td>Price Range</td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>Weekly Service Initial Clean Range:</td>
+                <td><label id="s1"></label></td>
+                <td><label id="s2"></label></td>
+
+            </tr>
+
+            <tr>
+                <td>Alternate Weekly Initial Clean Range:</td>
+               <td><label id="t1"></label></td>
+                <td><label id="t2"></label></td>
+
+            </tr>
+
+            <tr>
+                <td>Monthly Initial Clean:</td>
+                <td><label id="u1"></label></td>
+                <td><label id="u2"></label></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Estimate for Continuing Service cleans Based on:</td>
+                <td>$55</td>
+                <td>Per Hour</td>
+
+            </tr>
+
+        </table>
+
+    </center>
+</div>
+<script src="/static/assets/js/calculations.js"></script>
+</body>
+</html>

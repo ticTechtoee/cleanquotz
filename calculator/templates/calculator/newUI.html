@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Basic Styling for table -->
+    <title>Serv Peeps | Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/static/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/templatemo.css">
+
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+        /*
+Custom Css
+*/
+
+        #out-div {
+            height: auto;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        #border {
+            max-width: 200x;
+            width: 25%;
+            min-width: 350px;
+
+            background: #DAE3F3;
+            border-color: black;
+            border-style: groove;
+            border-radius: 100px;
+
+            display: inline-block;
+        }
+
+        #child-t {
+            display: inline-block;
+            margin-left: 20px;
+            margin-right: 20px;
+
+        }
+
+        #img {
+            display: inline-block;
+
+        }
+
+        #div-btn {
+            display: inline-block;
+
+        }
+
+        .input {
+
+
+            border: none;
+            text-align: center;
+            background: #CFD5EA;
+            max-width: 200x;
+            width: 80%;
+            min-width: 20px;
+        }
+
+
+
+        th {
+            background-color: #4472C4;
+            font-weight: 700;
+            font-size: 20px;
+
+            width: auto;
+        }
+        th p {
+            text-align: center;
+
+        }
+
+        td {
+            background-color: #CFD5EA;
+
+
+        }
+
+        p {
+            height: auto;
+            width: auto;
+            text-align: start;
+            margin-left: 10px;
+
+        }
+
+
+
+        #btn {
+
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 200px;
+            height: 40px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        #img {
+
+            width: 150px;
+            height: 70px;
+            margin-bottom: 5px;
+        }
+
+        .C-label {
+            width: auto;
+        }
+
+
+
+        .light {
+
+
+            background: #E9EBF5;
+        }
+
+        .light input {
+            background: #E9EBF5;
+            text-align: center;
+        }
+
+        .result {
+            background: #FBE5D6;
+            font-weight: 700;
+
+
+        }
+
+        .result input {
+            background: #FBE5D6;
+
+
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        #table td,
+        #table th {
+            border: 1px solid rgb(255, 252, 252);
+        }
+
+        .main {
+            float: left;
+
+
+        }
+
+        .para {
+            display: inline-block;
+
+
+        }
+
+        .para img {
+            width: 20px;
+            height: 20px;
+
+
+        }
+
+@media screen and (min-width: 0px) {
+    abbr[data-title] {
+        position: relative;
+
+        /* ensure consistent styling across browsers */
+        text-decoration: underline dotted;
+    }
+
+    abbr[data-title]:hover::after,
+    abbr[data-title]:focus::after {
+        content: attr(data-title);
+
+        /* position tooltip like the native one */
+        position: absolute;
+        left: 0;
+        bottom: -30px;
+        width: auto;
+
+        /* style tooltip */
+        background-color: #1e1e1e;
+        color: #fff;
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+        font-size: 14px;
+        padding: 3px 5px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none"
+                        href="mailto:servpeeps@gmail.com">servpeeps@gmail.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:(207) 835 1114">(207) 835 1114</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/" target="_blank" rel="sponsored"><i
+                            class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                            class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                            class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                            class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <img style="max-width: 25%;max-height: 25%;width: auto;height: auto;" src="/static/assets/img/CLEANQUOTZ-01.png"/>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home:index' %}">Home</a>
+                        </li>
+                      <!--  <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about:index' %}">About</a>
+                        </li> -->
+                       <!-- <li class="nav-item">
+                            <a class="nav-link" href="{% url 'tutorial:index' %}">Tutorial</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'calculator:index' %}">Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact:index'%}">Contact</a>
+                        </li>
+
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a class="nav-link">Welcome! <strong>{{ user.username }}</strong></a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="{% url 'accounts:logout' %}"><u>Log Out</u></a>
+                        </li>
+                         {% else %}
+                       <a class="nav-icon position-relative text-decoration-none nav-link" href="{% url 'accounts:login' %}">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i></a>
+                          {% endif %}
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    </br>
+    </br>
+    </br>
+    {% if user.is_authenticated %}
+
+
+
+<div id="out-div">
+    <div id="border">
+       <div id="child-t">
+           <div id="img">
+<!-- <img src="/static/assets/img/SP.png" id="img"/> -->
+</div>
+        <table id="table">
+            <th>
+                <p>House Details</p>
+            </th>
+            <th>
+                <p>Value</p>
+            </th>
+            <tr>
+                <td class="C-label">
+                  <div class="main">
+                        <div class="para">
+                            <p>Square Feet (0-6000)*</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="Enter_total_square_footage of house or total square footage of area to be cleaned."><img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
+                </td>
+                <td class="I-label"><input class="input" id="a01" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Bedrooms*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="b1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                    <div class="main">
+                        <div class="para">
+                            <p>Bathrooms*</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="Enter_total_number_of_Bathrooms by adding up and entering in total. Half Bath (toilet –sink) enter: .5.
+                            Three quarter bath(toilet, sink and stand up shower) enter: .75.
+                            Full Bath (Toilet, sink and tub/shower combo) enter: 1"><img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
+                </td>
+                <td class="I-label"><input class="input" id="c1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Living Room(s)*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="d1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                    <p>Dining Room*</p>
+                </td>
+                <td class="I-label"><input class="input" id="e1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Den/Family Room*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="f1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                    <p>Study*</p>
+                </td>
+                <td class="I-label"><input class="input" id="h1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Game Room*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="i1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                    <p>Media Room*</p>
+                </td>
+                <td class="I-label"><input class="input" id="j1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Laundry Room*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="k1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                    <p>Rooms with Hard Wood Floors*</p>
+                </td>
+                <td class="I-label"><input class="input" id="l1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Multiple Vanties in Master Bath*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="m1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                    <p>People Living In House*</p>
+                </td>
+                <td class="I-label"><input class="input" id="n1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p>Pets Living In House*</p>
+                </td>
+                <td class="I-label light"><input class="input" id="o1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label">
+                  <div class="main">
+                        <div class="para">
+                            <p>Number of Floors*</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="Number_of_floors being cleaned in house, apartment/townhouse.">
+                                <img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
+                </td>
+                <td class="I-label"><input class="input" id="p1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+
+            <tr>
+                <td class="C-label light">
+                    <p<div class="main">
+                        <div class="para">
+                            <p>State Tax Rate*</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="Enter sale_tax_rate for your State here. No sales_tax in your State, enter “0”">
+                                <img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
+                </td>
+                <td class="I-label light"><input class="input" id="tax_ratio" value="5" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+            <tr>
+                <td class="C-label">
+                    <div class="main">
+                        <div class="para">
+                            <p>Hourly Rate*</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="Hourly_rate you charge per-hour per cleaner. Typically between $35 to $75 per-hour.">
+                                <img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
+                </td>
+                <td class="I-label"><input class="input" value="75" id="u1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
+            </tr>
+            <tr>
+                <td class="result">
+                    <p>Total Weekly Service</p>
+                </td>
+                <td class="I-label result"><input class="input" id="t1" value="0" readonly></td>
+            </tr>
+
+            <tr>
+                <td class="result">
+                    <p>Total Alternate Weekly Service</p>
+                </td>
+                <td class="I-label result"><input class="input" id="t2" value="0" readonly></td>
+            </tr>
+
+            <tr>
+                <td class="result">
+                    <div class="main">
+                        <div class="para">
+                            <p>Monthly Service</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="Use Monthly_Service_Price for Initial Clean (1st time clean) of property. Cleaners typically charge a higher rate for the intial clean. Due to it's deeper clean.">
+                                <img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
+                </td>
+                <td class="I-label result"><input class="input" id="t3" value="0" readonly></td>
+            </tr>
+
+        </table>
+<div id="div-btn">
+        <button onclick="clear_function();" id="btn">Clear Calculator</button>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <!-- this section is hidden, some calculations are based on the input fields that's why i hide this section and will use it for testing and verification -->
+    <!-- In future i will bypass this section with variables in the JavaScript. But for now it's working so let it be like this -->
+
+    <div>
+        <table hidden>
+
+            <td><input id="a1" value="0"></td>
+            <td><input id="AA" value="0"></td>
+            <td><input id="AB" value="0"></td>
+            <td><input id="AC" value="0"></td>
+            <td><input id="AD" value="0"></td>
+            <td><input id="AE" value="0"></td>
+            <td><input id="AF" value="0"></td>
+            <td><input id="AG" value="0"></td>
+            <td><input id="AH" value="0"></td>
+            <td><input id="AI" value="0"></td>
+            <td><input id="AJ" value="0"></td>
+            <td><input id="AK" value="0"></td>
+            <td><input id="AL" value="0"></td>
+            <td><input id="AM" value="0"></td>
+            <td><input id="AN" value="0"></td>
+
+
+            <td><input id="tax1" value="0"></td>
+            <td><input id="tax2" value="0"></td>
+            <td><input id="tax3" value="0"></td>
+
+            <td><input id="q1" value="0"></td>
+            <td><input id="r1" value="0"></td>
+            <td><input id="s1" value="0"></td>
+
+
+        </table>
+    </div>
+
+
+    </center>
+
+    {% else %}
+
+    <center>
+<h3>You are not authorized. Please <a href="{% url 'accounts:login' %}">Login</a> Here</h3>
+    </center>
+    {% endif %}
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Serv Peeps</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            USA
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:(207) 835 1114">(207) 835 1114</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@company.com">servpeeps@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="{% url 'home:index' %}">Home</a></li>
+                        <!--<li><a class="text-decoration-none" href="{% url 'about:index' %}">About Us</a></li>-->
+                        <li><a class="text-decoration-none" href="{% url 'calculator:index' %}">Calculator</a></li>
+                       <!-- <li><a class="text-decoration-none" href="{% url 'tutorial:index' %}">Tutorial</a></li>-->
+                        <li><a class="text-decoration-none" href="{% url 'contact:index' %}">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                                    class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                                    class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w-100 bg-black py-3">
+                    <div class="container">
+                        <div class="row pt-2">
+                            <div class="col-12">
+                                <p class="text-left text-light">
+                                    Copyright &copy; 2021 Serv Peeps
+                                    | Designed by <a rel="sponsored" href="#" target="_blank">Unique Design</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="/static/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/static/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/assets/js/templatemo.js"></script>
+
+    <script src="/static/assets/js/calculations.js"></script>
+    <!-- End Script -->
+
+</body>
+
+</html>
