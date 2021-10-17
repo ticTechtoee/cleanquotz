@@ -382,7 +382,7 @@ AMValue = function () {
 
 }
 
-
+/*
 ANValue = function () {
 
     var b1Value = document.getElementById('p1').value;
@@ -398,6 +398,7 @@ ANValue = function () {
         document.getElementById('AN').value = parseFloat(b1Value).toFixed(2) * parseFloat(rate1Value).toFixed(2);
     }
 }
+*/
 
 sumOfValues = function () {
 
@@ -414,10 +415,10 @@ sumOfValues = function () {
     var k3 = document.getElementById('AK').value;
     var l3 = document.getElementById('AL').value;
     var m3 = document.getElementById('AM').value;
-    var n3 = document.getElementById('AN').value;
+  /*  var n3 = document.getElementById('AN').value; */
     var o3 = document.getElementById('a1').value;
 
-    var result = parseFloat(a1) + parseFloat(b3) + parseFloat(c3) + parseFloat(d3) + parseFloat(e3) + parseFloat(f3) + parseFloat(g3) + parseFloat(h3) + parseFloat(i3) + parseFloat(j3) + parseFloat(k3) + parseFloat(l3) + parseFloat(m3) + parseFloat(n3) + parseFloat(o3);
+    var result = parseFloat(a1) + parseFloat(b3) + parseFloat(c3) + parseFloat(d3) + parseFloat(e3) + parseFloat(f3) + parseFloat(g3) + parseFloat(h3) + parseFloat(i3) + parseFloat(j3) + parseFloat(k3) + parseFloat(l3) + parseFloat(m3) /*+ parseFloat(n3)*/ + parseFloat(o3);
 
     document.getElementById('q1').value = result;
     document.getElementById('r1').value = result + 15;
@@ -478,14 +479,14 @@ clear_function = function () {
     document.getElementById('m1').value = '';
     document.getElementById('n1').value = '';
     document.getElementById('o1').value = '';
-    document.getElementById('p1').value = '';
+   /* document.getElementById('p1').value = '';*/
     document.getElementById('t1').value = '0';
     document.getElementById('t2').value = '0';
     document.getElementById('t3').value = '0';
 
 }
 
-var idarray = ["tax_ratio", "u1", "a01", "b1", "c1", "d1", "e1", "f1", "h1", "i1", "j1", "k1", "l1", "m1", "n1", "o1", "p1", "tax_ratio"];
+var idarray = ["tax_ratio", "u1", "a01", "b1", "c1", "d1", "e1", "f1", "h1", "i1", "j1", "k1", "l1", "m1", "n1", "o1", "tax_ratio"];
 
 function focusNext(e) {
     try {
@@ -542,7 +543,7 @@ function getTheText() {
     AKValue();
     ALValue();
     AMValue();
-    ANValue();
+   /* ANValue(); */
     sumOfValues();
     tax();
     total();

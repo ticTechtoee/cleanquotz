@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Serv Peeps</title>
+    <title>Clean Quotz | Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,13 +16,39 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/static/assets/css/fontawesome.min.css">
-<!--
 
-TemplateMo 559 Zay Shop
+<style>
+        .container {
+            width: 100%;
+            height: auto;
+            text-align: center;
+            position: relative;
+        }
 
-https://templatemo.com/tm-559-zay-shop
+        .container #btn-act {
+            background-color: #4472c4;
+            border-radius: 20px;
+            border: none;
+            color: white;
+            height: 60px;
+            width: 250px;
+            position: relative;
+            bottom: 350px;
+        }
 
--->
+        .container #bold-txt
+        {
+
+            padding-top: 10px;
+            font-weight: 700;
+        }
+        .line-height
+        {
+            line-height:2px;
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -121,81 +147,19 @@ https://templatemo.com/tm-559-zay-shop
 
 
     <!-- Start Banner Hero -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="/static/assets/img/Calculator-Image.png" alt="Calculator Image">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Cleaning</b> Service</h1>
-                                <h3 class="h2">Best Solution for your Cleaning Problems</h3>
-                                <p>
-                                    Try this Caclculator for Free.
-                                    This is a 100% free <a rel="sponsored" class="text-success" href="{% url 'calculator:index' %}">Calculator</a>.
-                                    No Credit Card Required.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="/static/assets/img/BANNER-II.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Grow Your Business</h1>
-                                <h3 class="h2">Estimating Calculator For House Cleaning Professionals</h3>
+    <div class="container">
+        <div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-
-<div style="text-align: center; height:100%; width:auto;">
-        <div style="height:100%; width:auto; display: inline-block; background-color: white; margin-top:100px;margin-bottom:50px; padding:50px 50px;">
-            <div>
-                <h3>
-                    Try CleanQuotz Calculator for Free
-                </h3>
-                <p>No Credit Card Needed!</p>
-            </div>
-            <div>
-                <a style="background-color:#9db0d1; border-radius: 20px; border-style: none; width: auto; height: auto; padding: 5px 20px; color: white; font-weight: 700;" href="{% url 'accounts:signup' %}">
-                    Create Account
-                    </a>
-            </div>
-
+            <img id="img-banner" src="/static/assets/img/Home-page-banner.png" style="height: 50%; width: 100%;">
         </div>
-    </div>
 
-                </div>
-            </div>
+        <div>
+            <a href="{% url 'accounts:signup' %}"><button id="btn-act">
+                    <p id="bold-txt" class="line-height">CREATE FREE ACCOUNT</p><p class="line-height">No Credit Card Required</p>
+                </button><a>
         </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
     </div>
     <!-- End Banner Hero -->
-
 
     <!-- Cleaning Service We Provide -->
     <section class="container py-5">
