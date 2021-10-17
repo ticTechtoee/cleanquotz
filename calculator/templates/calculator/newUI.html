@@ -4,7 +4,7 @@
 <head>
 
     <!-- Basic Styling for table -->
-    <title>Serv Peeps | Calculator</title>
+    <title>Clean Quotz | Calculator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,7 +27,7 @@
 Custom Css
 */
 
-        #out-div {
+       #out-div {
             height: auto;
             width: 100%;
             text-align: center;
@@ -39,7 +39,7 @@ Custom Css
             width: 25%;
             min-width: 350px;
 
-            background: #DAE3F3;
+            background: #f4f7f4;
             border-color: black;
             border-style: groove;
             border-radius: 100px;
@@ -69,29 +69,31 @@ Custom Css
 
             border: none;
             text-align: center;
-            background: #CFD5EA;
+            background: #39b54a;
             max-width: 200x;
             width: 80%;
             min-width: 20px;
+            color: #fff;
         }
 
 
 
         th {
-            background-color: #4472C4;
+            background-color: #339933;
             font-weight: 700;
             font-size: 20px;
-
+            color: #fff;
             width: auto;
         }
+
         th p {
             text-align: center;
 
         }
 
         td {
-            background-color: #CFD5EA;
-
+            background-color: #39b54a;
+            color: #fff;
 
         }
 
@@ -132,24 +134,27 @@ Custom Css
         .light {
 
 
-            background: #E9EBF5;
+            background: #5ccc66;
+            color: #fff;
         }
 
         .light input {
-            background: #E9EBF5;
+            background: #5ccc66;
             text-align: center;
+            color: #fff;
         }
 
         .result {
-            background: #FBE5D6;
+            background: #4cea0a;
             font-weight: 700;
+            color: #fff;
 
 
         }
 
         .result input {
-            background: #FBE5D6;
-
+            background: #4cea0a;
+            color: #fff;
 
         }
 
@@ -181,33 +186,33 @@ Custom Css
 
         }
 
-@media screen and (min-width: 0px) {
-    abbr[data-title] {
-        position: relative;
+        @media screen and (min-width: 0px) {
+            abbr[data-title] {
+                position: relative;
 
-        /* ensure consistent styling across browsers */
-        text-decoration: underline dotted;
-    }
+                /* ensure consistent styling across browsers */
+                text-decoration: underline dotted;
+            }
 
-    abbr[data-title]:hover::after,
-    abbr[data-title]:focus::after {
-        content: attr(data-title);
+            abbr[data-title]:hover::after,
+            abbr[data-title]:focus::after {
+                content: attr(data-title);
 
-        /* position tooltip like the native one */
-        position: absolute;
-        left: 0;
-        bottom: -30px;
-        width: auto;
+                /* position tooltip like the native one */
+                position: absolute;
+                left: 0;
+                bottom: -30px;
+                width: auto;
 
-        /* style tooltip */
-        background-color: #1e1e1e;
-        color: #fff;
-        border-radius: 3px;
-        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
-        font-size: 14px;
-        padding: 3px 5px;
-    }
-}
+                /* style tooltip */
+                background-color: #1e1e1e;
+                color: #fff;
+                border-radius: 3px;
+                box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+                font-size: 16px;
+                padding: 3px 5px;
+            }
+        }
     </style>
 </head>
 
@@ -321,7 +326,7 @@ Custom Css
                             <p>Square Feet (0-6000)*</p>
                         </div>
                         <div class="para">
-                            <abbr data-title="Enter_total_square_footage of house or total square footage of area to be cleaned."><img src="/static/assets/img/question-mark.png"></abbr>
+                            <abbr data-title="____________________ Enter total Square Footage of house or total square footage of area to be cleaned."><img src="/static/assets/img/question-mark.png"></abbr>
                         </div>
                     </div>
                 </td>
@@ -342,9 +347,7 @@ Custom Css
                             <p>Bathrooms*</p>
                         </div>
                         <div class="para">
-                            <abbr data-title="Enter_total_number_of_Bathrooms by adding up and entering in total. Half Bath (toilet –sink) enter: .5.
-                            Three quarter bath(toilet, sink and stand up shower) enter: .75.
-                            Full Bath (Toilet, sink and tub/shower combo) enter: 1"><img src="/static/assets/img/question-mark.png"></abbr>
+                            <abbr data-title="____________________ Enter Total Number Of Bathrooms by adding up and entering in total. Half Bath (toilet–sink) enter: 0.5.Three quarter bath(toilet,sink and standup shower) enter: 0.75. Full Bath (Toilet, sink and tub/shower combo) enter: 1"><img src="/static/assets/img/question-mark.png"></abbr>
                         </div>
                     </div>
                 </td>
@@ -402,7 +405,15 @@ Custom Css
 
             <tr>
                 <td class="C-label">
-                    <p>Rooms with Hard Wood Floors*</p>
+                    <div class="main">
+                        <div class="para">
+                            <p>Rooms With HW Floors*</p>
+                        </div>
+                        <div class="para">
+                            <abbr data-title="____________________ HW (Hard Wood) Number of floors being cleaned in house, apartment/townhouse.">
+                                <img src="/static/assets/img/question-mark.png"></abbr>
+                        </div>
+                    </div>
                 </td>
                 <td class="I-label"><input class="input" id="l1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
             </tr>
@@ -428,7 +439,7 @@ Custom Css
                 <td class="I-label light"><input class="input" id="o1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
             </tr>
 
-            <tr>
+          <!--  <tr>
                 <td class="C-label">
                   <div class="main">
                         <div class="para">
@@ -441,16 +452,16 @@ Custom Css
                     </div>
                 </td>
                 <td class="I-label"><input class="input" id="p1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
-            </tr>
+            </tr> -->
 
             <tr>
-                <td class="C-label light">
+                <td class="C-label">
                     <p<div class="main">
                         <div class="para">
                             <p>State Tax Rate*</p>
                         </div>
                         <div class="para">
-                            <abbr data-title="Enter sale_tax_rate for your State here. No sales_tax in your State, enter “0”">
+                            <abbr data-title="____________________ Enter Sale Tax Rate for your State here. No sales tax in your State, enter “0”">
                                 <img src="/static/assets/img/question-mark.png"></abbr>
                         </div>
                     </div>
@@ -458,19 +469,20 @@ Custom Css
                 <td class="I-label light"><input class="input" id="tax_ratio" value="5" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
             </tr>
             <tr>
-                <td class="C-label">
+                <td class="C-label light">
                     <div class="main">
                         <div class="para">
                             <p>Hourly Rate*</p>
                         </div>
                         <div class="para">
-                            <abbr data-title="Hourly_rate you charge per-hour per cleaner. Typically between $35 to $75 per-hour.">
+                            <abbr data-title="____________________ Hourly rate you charge per-hour per cleaner. Typically between $45 to $95 per-hour.">
                                 <img src="/static/assets/img/question-mark.png"></abbr>
                         </div>
                     </div>
                 </td>
                 <td class="I-label"><input class="input" value="75" id="u1" onkeydown="focusNext(event);focusUp(event);focusDown(event);" onchange oninput="getTheText();"></td>
             </tr>
+
             <tr>
                 <td class="result">
                     <p>Total Weekly Service</p>
@@ -492,7 +504,7 @@ Custom Css
                             <p>Monthly Service</p>
                         </div>
                         <div class="para">
-                            <abbr data-title="Use Monthly_Service_Price for Initial Clean (1st time clean) of property. Cleaners typically charge a higher rate for the intial clean. Due to it's deeper clean.">
+                            <abbr data-title="____________________ Use Monthly Service Price for Initial Clean (1st time clean) of property. Cleaners typically charge a higher rate for the intial clean. Due to it's deeper clean.">
                                 <img src="/static/assets/img/question-mark.png"></abbr>
                         </div>
                     </div>
